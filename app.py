@@ -10,10 +10,11 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     # Student 1: Change this plot to a bar chart
-    df.plot()
+    df.bar()
     plt.xlabel('Student')
     plt.xticks(ticks=df.index, labels=df.student)
     plt.ylabel('Grade')
+    
     plt.tight_layout()
     plt.savefig('static/img/plot.svg')
 
@@ -28,6 +29,7 @@ def students():
     # Student 1: Sort df on 'grade' inplace (inplace=True)
     # Student 2: Jsonify the response
     students_dict = df.to_dict(orient='records')
+  
     return str(students_dict)
 
 
